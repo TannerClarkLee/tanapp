@@ -1,9 +1,10 @@
 CREATE TABLE users (
-    user_id SERIAL PRIMARY KEY,
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255),
     first_name VARCHAR(255),
-    last_name VARCHAR(255)
+    last_name VARCHAR(255),
+    icon TEXT
 );
 
 CREATE TABLE user_permissions (
@@ -14,14 +15,14 @@ CREATE TABLE user_permissions (
 );
 
 CREATE TABLE permissions (
-    permission_id SERIAL PRIMARY KEY,
+    permission_id INTEGER PRIMARY KEY AUTOINCREMENT,
     permission VARCHAR(255)
 );
 
 --  = = = = = = = = = APPS
 
 CREATE TABLE apps (
-    app_id SERIAL PRIMARY KEY,
+    app_id INTEGER PRIMARY KEY AUTOINCREMENT,
     app_name VARCHAR(50),
     app_desc VARCHAR(255)
 );
@@ -52,19 +53,19 @@ CREATE TABLE user_list_items (
 );
 
 CREATE TABLE lists (
-    list_id SERIAL PRIMARY KEY,
+    list_id INTEGER PRIMARY KEY AUTOINCREMENT,
     list_name VARCHAR(255),
     list_desc VARCHAR(255)
 );
 
 CREATE TABLE list_items (
-    list_item_id SERIAL PRIMARY KEY,
+    list_item_id INTEGER PRIMARY KEY AUTOINCREMENT,
     list_id INT
 );
 
 
 CREATE TABLE ranking (
-    ranking_id SERIAL PRIMARY KEY,
+    ranking_id INTEGER PRIMARY KEY AUTOINCREMENT,
     list_id INT,
     ranking_name VARCHAR(255)
 );
