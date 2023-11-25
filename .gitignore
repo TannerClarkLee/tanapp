@@ -1,0 +1,10 @@
+# Ignore pytest cache and test result files
+*.pyc
+*.pyo
+__pycache__/
+.pytest_cache
+
+# Ignore VSCode folders
+.vscode/
+
+*.db
