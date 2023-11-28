@@ -22,12 +22,25 @@ class User():
             return None
         return cls(usr[0],usr[1],usr[2],usr[3],usr[4],usr[5])
 
+    @classmethod
+    def from_id(cls,conn,user_id):
+        sql_stmt = "SELECT user_id,email,password,first_name,last_name,icon FROM users WHERE user_id = ?"
+        cursor = conn.cursor()
+
+        cursor.execute(sql_stmt, (user_id,))
+        
+        usr = cursor.fetchone()
+        if usr is None:
+            return None
+        return cls(usr[0],usr[1],usr[2],usr[3],usr[4],usr[5])
+
+
     def to_dict(self)->Dict:
-        di = {"userId":self.user_id,
+        di = {"user_id":self.user_id,
                 "email":self.email,
                 "password":self.password,
-                "firstName":self.first_name,
-                "lastName":self.last_name,
+                "first_name":self.first_name,
+                "last_name":self.last_name,
                 "icon":self.icon,
         }
         return di
